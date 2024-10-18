@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Demo</title>
+</head>
+<body>
+    <h1>Welcome to API Demo</h1>
+    <button onclick="callHelloAPI()">Call Hello API</button>
+    <button onclick="callUserAPI()">Call User API</button>
+    <div id="result"></div>
+    <img src="/resource/catch.jpg" alt="catch">
+
+    <script>
+        function callHelloAPI() {
+            fetch('/api/hello')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerText = JSON.stringify(data);
+                });
+        }
+
+        function callUserAPI() {
+            fetch('/api/user/Alice')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerText = JSON.stringify(data);
+                });
+        }
+    </script>
+</body>
+</html>
